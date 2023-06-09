@@ -1,0 +1,44 @@
+{
+  "name": "password-toolkit",
+  "version": "0.0.0",
+  "description": "Library for secure password, for evaluating and generating secure passwords.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node --test test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vgbr-dev/password-toolkit.git"
+  },
+  "keywords": [
+    "class",
+    "javascript",
+    "password",
+    "security",
+    "validation",
+    "strength",
+    "generator",
+    "utility",
+    "library",
+    "random",
+    "characters",
+    "options",
+    "patterns",
+    "evaluate",
+    "suggestions",
+    "qualities",
+    "rules",
+    "secure",
+    "toolkit"
+  ],
+  "author": "Victor Giovanni Beltrán Rodríguez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vgbr-dev/password-toolkit/issues"
+  },
+  "homepage": "https://github.com/vgbr-dev/password-toolkit#readme"
+}
