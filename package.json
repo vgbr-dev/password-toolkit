@@ -1,6 +1,6 @@
 {
   "name": "password-toolkit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "Library for secure password, for evaluating and generating secure passwords.",
   "keywords": [
