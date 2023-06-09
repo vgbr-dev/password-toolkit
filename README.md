@@ -1,8 +1,7 @@
 # PasswordToolKit
 
 ![Github Actions](https://github.com/vgbr-dev/password-toolkit/actions/workflows/integrate.yaml/badge.svg)
-[![npm version](https://badge.fury.io/js/password-utility.svg)](https://badge.fury.io/js/password-utility)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/vgbr-dev/password-toolkit)
+[![npm version](https://badge.fury.io/js/password-toolkit.svg)](https://badge.fury.io/js/password-toolkit)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/vgbr-dev/password-toolkit/blob/main/LICENSE)
 
 The `PasswordToolKit` is a simple and easy-to-use class that allows generating and evaluating password strength.
