@@ -227,4 +227,4 @@ If you encounter any bugs or issues with `PasswordToolKit`, issues and feature r
 
 ## License
 
-Distributed under the MIT License. See LICENSE for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/vgbr-dev/password-toolkit/blob/main/LICENSE) for more information.
