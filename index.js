@@ -13,7 +13,7 @@
  * @classdesc Password class that allows generating and evaluating password
  * strength.
  *
- * @version 1.0.3
+ * @version 2.0.0
  * @author Victor Giovanni Beltrán Rodríguez
  * @module PasswordToolKit
  */
