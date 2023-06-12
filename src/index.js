@@ -7,6 +7,12 @@
  * @module PasswordToolKit
  */
 
+// ━━ IMPORT MODULES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// » IMPORT MODULES
+const { regexps, patterns } = require('./constants');
+const { suggestions, qualities } = require('./defaults');
+const { getRandomNumber, getSelectedChars, charsToArray, everyString } = require('./functions');
+
 // ━━ TYPE DEFINITIONS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 /**
  * The options for the PasswordToolKit instance.
@@ -44,163 +50,6 @@
  * @property {string} suggestion         - Text offering suggestions to improve password security.
  * @property {string} quality            - The quality level of the password.
  */
-
-// ━━ CONSTANTS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-/**
- * Constant that defines the numeric digits 0 through 9.
- *
- * @private
- * @constant
- * @type {string}
- */
-const numbers = '0123456789';
-
-/**
- * Constant that defines the special symbols for passwords.
- *
- * @private
- * @constant
- * @type {string}
- */
-const symbols = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
-
-/**
- * Constant that defines the lowercase letters of the English alphabet.
- *
- * @private
- * @constant
- * @type {string}
- */
-const lowercases = 'abcdefghijklmnopqrstuvwxyz';
-
-/**
- * Constant that defines the capital letters of the English alphabet.
- *
- * @private
- * @constant
- * @type {string}
- */
-const uppercases = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-/**
- * Object that contains regular expressions to validate certain patterns in
- * the password.
- *
- * @private
- * @type {RegExpsPassword}
- */
-const regexps = {
-  numbers: /\d/,
-  symbols: /[\W_]/,
-  uppercases: /[A-Z]/,
-  lowercases: /[a-z]/,
-  repeated: /(.).*?\1/,
-};
-
-/**
- * Array containing regular expressions to validate common password patterns.
- *
- * @private
- * @type {Array<RegExp>}
- */
-const patterns = [
-  /\d{4}/, // 4 consecutive digits
-  /\d{6}/, // 6 consecutive digits
-  /[A-Za-z]{4}/, // 4 consecutive letters
-  /[A-Za-z]{6}/, // 6 consecutive letters
-  /([A-Za-z\d])\1{2,}/, // 3 or more consecutive identical characters
-  /[A-Za-z]+\d+[A-Za-z]*/, // letters and numbers interspersed
-  /[A-Za-z]*\d+[A-Za-z]+/, // letters and numbers interspersed
-  /([A-Za-z\d])\1{3,}/, // 4 or more consecutive identical characters
-];
-
-/**
- * Array containing default suggestions for password evaluation.
- *
- * @private
- * @type {Array<string>}
- */
-const suggestions = [
-  'The password must have at least 8 characters.',
-  'Add uppercase and lowercase letters to make the password more secure.',
-  'Add numbers to make the password more secure.',
-  'Add symbols to make the password more secure.',
-  'Avoid using repeated characters in the password.',
-  'Avoid using common password patterns.',
-  'Excellent! The password is secure.',
-];
-
-/**
- * Array containing default qualities for password evaluation.
- *
- * @private
- * @type {Array<string>}
- */
-const qualities = ['insecure', 'low', 'medium', 'high', 'perfect'];
-
-// ━━ FUNCTIONS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-/**
- * Function that returns a random number between 0 and the specified size.
- *
- * @private
- * @function
- * @param {number} size - Maximum size to generate the random number.
- * @returns {number} Generated random number.
- * @example
- * ```js
- * const randomNumber = getRandomNumber();
- * ```
- */
-const getRandomNumber = size => Math.floor(Math.random() * size);
-
-/**
- * Function that returns an object with the characters to be used to create a
- * password, according to the specified options.
- *
- * @private
- * @function
- * @param {object} options - A object that contains the password creation options.
- * @returns {object} Object with the characters to use to generate.
- * @example
- * ```js
- * const options = { numbers: true, symbols: true, uppercases: true };
- * const selectedChars = getSelectedChars({ numbers: true });
- * ```
- */
-const getSelectedChars = options => ({
-  ...(options.numbers && { numbers }),
-  ...(options.symbols && { symbols }),
-  ...(options.uppercases && { uppercases }),
-  ...(options.lowercases && { lowercases }),
-});
-
-/**
- * Function that converts the selected characters into an array.
- *
- * @private
- * @function
- * @param {object} selected - Object with the selected characters.
- * @returns {Array<string>} An `Array` with selected characters.
- * @example
- * ```js
- * const chars = charsToArray('abcdefghijklmnopqrstuvwxyz');
- * ```
- */
-const charsToArray = selected => Object.values(selected).flatMap(value => value.split(''));
-
-/**
- * Checks if every element in the array is a string.
- *
- * @private
- * @function
- * @param {Array<string>} target - The array to check.
- * @returns {boolean} Returns `true` if every element is a string, otherwise `false`.
- * @example
- * ```js
- * everyString(['yellow', 'red', 'green']); // Expected value: true
- * ```
- */
-const everyString = target => target.every(item => typeof item === 'string');
 
 // ━━	MODULE	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 /**
