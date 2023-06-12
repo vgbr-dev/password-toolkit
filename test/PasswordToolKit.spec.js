@@ -53,7 +53,7 @@ const THROWS = {
 };
 
 /**
- * Defines the errors that can be thrown by the `PasswordToolKit` class.
+ * The options for the `PasswordToolKit` instance.
  *
  * @private
  * @constant {object} INSTANCE_OPTIONS
