@@ -11,10 +11,14 @@ The `PasswordToolKit` is a simple and easy-to-use class that allows generating a
 - [Installation](#installation)
 - [Importing](#importing)
 - [Usage](#usage)
+- [Type Definitions](#type-definitions)
+  - [PasswordToolKitSettings](#passwordtoolkitsettings)
+  - [OptionsValidation](#optionsvalidation)
+  - [GenerateOptions](#generateoptions)
 - [API](#api)
   - [PasswordToolKit(settings)](#passwordtoolkitsettings)
   - [PasswordToolKit#checkOptions(options)](#passwordtoolkitcheckoptionsoptions)
-  - [PasswordToolKit#create(options)](#passwordtoolkitcreateoptions)
+  - [PasswordToolKit#generate(options)](#passwordtoolkitgenerateoptions)
   - [PasswordToolKit#evaluate(password)](#passwordtoolkitevaluatepassword)
 - [Contributing](#contributing)
 - [License](#license)
@@ -73,6 +77,57 @@ if (validation.ok) {
   throw new Error(validation.reason);
 }
 ```
+
+## Type Definitions
+
+### `PasswordToolKitSettings`
+
+The options for the PasswordToolKit instance.
+
+**type:** Object
+
+| Property    | Type             | Description                                              |
+|-------------|------------------|----------------------------------------------------------|
+| maximum     | `number`         | The maximum length allowed for a password.               |
+| suggestions | `Array.<string>` | Texts offering suggestions to improve password security. |
+| qualities   | `Array.<string>` | Quality levels for password strength.                    |
+
+### `OptionsValidation`
+
+The result of validating password options.
+
+**type:** Object
+
+| Property | Type      | Description                                                       |
+|----------|-----------|-------------------------------------------------------------------|
+| ok       | `boolean` | Indicates whether the validation passed `true` or failed `false`. |
+| reason   | `string`  | Reason for the validation result.                                 |
+
+### `GenerateOptions`
+
+Configuration options to generate passwords.
+
+**type:** Object
+
+| Property   | Type      | Description                                                      |
+|------------|-----------|------------------------------------------------------------------|
+| size       | `number`  | The desired size of the password.                                |
+| numbers    | `boolean` | Indicates whether numbers are allowed in the password.           |
+| symbols    | `boolean` | Indicates whether symbols are allowed in the password.           |
+| uppercases | `boolean` | Indicates whether uppercase letters are allowed in the password. |
+| lowercases | `boolean` | Indicates whether lowercase letters are allowed in the password. |
+
+### `PasswordEvaluation`
+
+The result of validating a password's security.
+
+**type:** Object
+
+| Property   | Type     | Description                                                   |
+|------------|----------|---------------------------------------------------------------|
+| level      | `number` | A number indicating the security level of the password (0-5). |
+| suggestion | `string` | Text offering suggestions to improve password security.       |
+| quality    | `string` | The quality level of the password.                            |
 
 ## API
 
@@ -154,9 +209,9 @@ const options = {
 const validation = passwordToolKit.checkOptions(options);
 ```
 
-### `PasswordToolKit#create(options)`
+### `PasswordToolKit#generate(options)`
 
-The `create()` method generates a new password with the provided options. It accepts an options object with the following properties:
+The `generate()` method generates a new password with the provided options. It accepts an options object with the following properties:
 
 Arguments
 
