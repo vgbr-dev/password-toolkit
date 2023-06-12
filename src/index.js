@@ -9,16 +9,12 @@
 
 // ━━ TYPE DEFINITIONS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 /**
- * Object that contains regular expressions to validate certain patterns in
- * the password.
+ * The options for the PasswordToolKit instance.
  *
- * @private
- * @typedef  {object} RegExpsPassword
- * @property {RegExp} numbers         - At least one numeric digit.
- * @property {RegExp} symbols         - At least one special symbol.
- * @property {RegExp} uppercases      - At least one capital letter.
- * @property {RegExp} lowercases      - At least one lowercase letter.
- * @property {RegExp} repeated        - Contains no repeating characters.
+ * @typedef  {object}         PasswordToolKitSettings
+ * @property {number}         maximum                 - The maximum length allowed for a password.
+ * @property {Array.<string>} suggestions             - Texts offering suggestions to improve password security.
+ * @property {Array.<string>} qualities               - Quality levels for password strength.
  */
 
 /**
@@ -30,14 +26,14 @@
  */
 
 /**
- * Configuration options to create passwords.
+ * Configuration options to generate passwords.
  *
- * @typedef  {object}  CreateOptions
- * @property {number}  size          - The desired size of the password.
- * @property {boolean} numbers       - Indicates whether numbers are allowed in the password.
- * @property {boolean} symbols       - Indicates whether symbols are allowed in the password.
- * @property {boolean} uppercases    - Indicates whether uppercase letters are allowed in the password.
- * @property {boolean} lowercases    - Indicates whether lowercase letters are allowed in the password.
+ * @typedef  {object}  GenerateOptions
+ * @property {number}  size            - The desired size of the password.
+ * @property {boolean} numbers         - Indicates whether numbers are allowed in the password.
+ * @property {boolean} symbols         - Indicates whether symbols are allowed in the password.
+ * @property {boolean} uppercases      - Indicates whether uppercase letters are allowed in the password.
+ * @property {boolean} lowercases      - Indicates whether lowercase letters are allowed in the password.
  */
 
 /**
@@ -226,10 +222,7 @@ class PasswordToolKit {
    *
    *
    * @memberof PasswordToolKit
-   * @param {object} [settings] - The options for the PasswordToolKit instance.
-   * @param {number} [settings.maximum] - The maximum length allowed for a password.
-   * @param {string} [settings.suggestions] - Text offering suggestions to improve password security.
-   * @param {string} [settings.qualities] - Array of quality levels for password strength.
+   * @param {PasswordToolKitSettings} [settings] - The options for the PasswordToolKit instance.
    * @throws {TypeError} Throws a TypeError if the "options" parameter is not an object.
    * @throws {TypeError} Throws a TypeError if the "suggestions" value is not an array.
    * @throws {TypeError} Throws a TypeError if the "qualities" value is not an array.
@@ -308,12 +301,7 @@ class PasswordToolKit {
    * The `create()` method, checks if the provided password options are valid.
    *
    * @memberof  PasswordToolKit
-   * @param {object} options - The options for the password to be check.
-   * @param {number} options.size - The desired size of the password.
-   * @param {boolean} options.numbers - Indicates whether numbers are allowed in the password.
-   * @param {boolean} options.symbols - Indicates whether symbols are allowed in the password.
-   * @param {boolean} options.uppercases - Indicates whether uppercase letters are allowed in the password.
-   * @param {boolean} options.lowercases - Indicates whether lowercase letters are allowed in the password.
+   * @param {GenerateOptions} options - The options for the password to be check.
    * @returns {OptionsValidation} The result of the validation.
    * @example Add example.
    */
@@ -349,16 +337,10 @@ class PasswordToolKit {
   }
 
   /**
-   * The `create()` method, generates a new password with the provided options.
+   * The `generate()` method, generates a new password with the provided options.
    *
    * @memberof PasswordToolKit
-   * @deprecated
-   * @param {object} options - The options for the password to be generated.
-   * @param {number} options.size - The desired size of the password.
-   * @param {boolean} options.numbers - Indicates whether numbers are allowed in the password.
-   * @param {boolean} options.symbols - Indicates whether symbols are allowed in the password.
-   * @param {boolean} options.uppercases - Indicates whether uppercase letters are allowed in the password.
-   * @param {boolean} options.lowercases - Indicates whether lowercase letters are allowed in the password.
+   * @param {GenerateOptions} options - The options for the password to be generated.
    * @returns {string|null} The generated password, or null if the provided options are invalid.
    * @example
    * ```js
