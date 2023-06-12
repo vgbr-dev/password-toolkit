@@ -54,6 +54,36 @@ const PasswordToolKit = require('password-toolkit');
 // Create an instance of PasswordToolKit
 const passwordToolKit = new PasswordToolKit();
 
+// It is equivalent
+const passwordToolKit = new PasswordToolKit({
+  maximum: 30,
+  suggestions: [
+    'The password must have at least 8 characters.',
+    'Add uppercase and lowercase letters to make the password more secure.',
+    'Add numbers to make the password more secure.',
+    'Add symbols to make the password more secure.',
+    'Avoid using repeated characters in the password.',
+    'Avoid using common password patterns.',
+    'Excellent! The password is secure.',
+  ],
+  qualities: ['insecure', 'low', 'medium', 'high', 'perfect'],
+});
+
+// Or You can translate the messages for the evaluation of the password
+const passwordToolKit = new PasswordToolKit({
+  maximum: 30,
+  suggestions: [
+    'La contraseña debe tener al menos 8 caracteres.',
+    'Agregue letras mayúsculas y minúsculas para que la contraseña sea más segura.',
+    'Agregue números para que la contraseña sea más segura.',
+    'Agregue símbolos para que la contraseña sea más segura.',
+    'Evitar el uso de caracteres repetidos en la contraseña.',
+    'Evitar el uso de patrones de contraseña comunes.',
+    '¡Excelente! La contraseña es segura.',
+  ],
+  qualities: ['Inseguro', 'Bajo', 'Medio', 'Alto', 'Perfecto'],
+});
+
 // Generate a password
 const options = {
   size: 12,
