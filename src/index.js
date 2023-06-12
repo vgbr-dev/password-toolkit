@@ -194,7 +194,7 @@ class PasswordToolKit {
    * @example
    * ```js
    * const options = { size: 12, numbers: true, symbols: true };
-   * const password = passwordToolKit.create(options);
+   * const password = passwordToolKit.generate(options);
    * console.log(password);
    * ```
    */
