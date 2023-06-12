@@ -352,6 +352,7 @@ class PasswordToolKit {
    * The `create()` method, generates a new password with the provided options.
    *
    * @memberof PasswordToolKit
+   * @deprecated
    * @param {object} options - The options for the password to be generated.
    * @param {number} options.size - The desired size of the password.
    * @param {boolean} options.numbers - Indicates whether numbers are allowed in the password.
