@@ -74,12 +74,12 @@ const INSTANCE_OPTIONS = {
 
 // ━━ CONSTANTS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 /**
- * Add description.
+ * Function to create an instance of the class being tested.
  *
  * @private
  * @function createInstance
- * @param {string} settings  - Add description.
- * @returns {PasswordToolKit} Add description.
+ * @param {string} settings  - The options for the PasswordToolKit instance.
+ * @returns {PasswordToolKit} The instance to test.
  * @example createInstance(d6F3Efeqd6F3Efeqd6F3Efeqd6F3Efeq);
  *
  */
