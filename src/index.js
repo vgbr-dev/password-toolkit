@@ -198,7 +198,7 @@ class PasswordToolKit {
    * console.log(password);
    * ```
    */
-  create(options) {
+  generate(options) {
     const check = this.checkOptions(options);
     if (!check.ok) {
       return null;
