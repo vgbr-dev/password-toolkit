@@ -307,10 +307,10 @@ describe('PasswordToolKit', () => {
     });
   });
 
-  describe('#create()', () => {
+  describe('#generate()', () => {
     it('should return a string', () => {
       const passwordToolKit = new PasswordToolKit(INSTANCE_OPTIONS);
-      const password = passwordToolKit.create({
+      const password = passwordToolKit.generate({
         size: 10,
         symbols: true,
         lowercases: true,
@@ -329,7 +329,7 @@ describe('PasswordToolKit', () => {
         uppercases: false,
         lowercases: false,
       };
-      const password = passwordToolKit.create(options);
+      const password = passwordToolKit.generate(options);
       assert.strictEqual(password, null);
     });
   });
