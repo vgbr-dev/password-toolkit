@@ -208,6 +208,7 @@ const everyString = target => target.every(item => typeof item === 'string');
  * passwords, check their strength, and perform other password-related
  * operations.
  *
+ * @version 2.0.0
  * @class PasswordToolKit
  * @classdesc Password class that allows generating and evaluating passwordstrength.
  */
